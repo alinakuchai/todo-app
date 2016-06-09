@@ -11,10 +11,11 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="container">
    <?php
     $link=mysqli_connect("localhost", "todo-app-user", "yjdsqgfhjkm", "todo-app");
     ?>
+    <a href="/" class="back">Back to app</a>
     <table class="queries">
         <thead>
             <tr>

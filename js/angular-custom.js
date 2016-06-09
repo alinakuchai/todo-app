@@ -227,6 +227,7 @@ $todoModule.controller('ToDoController', function ($scope, $http, $timeout) {
             console.error(data);
         });
     };
+    
     $scope.sortTasks = function (project) {
         var arrayId = [];
         project.tasks.forEach(function (task) {
@@ -258,6 +259,7 @@ $todoModule.controller('ToDoController', function ($scope, $http, $timeout) {
             $scope.sortTasks(ui.item.scope().project);
         }
     };
+    
     $scope.getProject();
     angular.element(document).on('click', 'a[href="#"]', function (e) {
         e.preventDefault();

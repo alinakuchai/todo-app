@@ -411,7 +411,8 @@ form.user-form input {
 
 a.logout,
 a.queries,
-form.user-form input[type="submit"] {
+form.user-form input[type="submit"],
+a.back {
     border: 1px solid #447557;
     height: 30px;
     line-height: 28px;
@@ -432,7 +433,8 @@ form.user-form input[type="submit"] {
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#94cbae', endColorstr='#508767', GradientType=0);
 }
 
-a.logout {
+a.logout,
+a.back {
     float: left;
 }
 
