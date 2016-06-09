@@ -64,6 +64,7 @@ if (!(isset($_COOKIE['id']) and isset($_COOKIE['hash']))):?>
     <title>TODO-APP</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Script -->
@@ -111,6 +112,7 @@ if (!(isset($_COOKIE['id']) and isset($_COOKIE['hash']))):?>
                     <input type="checkbox" ng-model="task.status" ng-true-value="'1'" ng-false-value="'0'" ng-change="changeTaskStatus(task)" />
                     <p ng-hide="task.editing">{{task.name}}</p>
                     <input type="text" ng-show="task.editing" ng-value="task.name" id="{{'task' + task.id}}" class="editingInput" />
+                    <input type="text" placeholder="Set deadline" ng-model="task.deadline" ng-change="saveDeadline(task)" class="deadline datepicker" />
                     <ul class="tools">
                         <li>
                             <a href="#" class="icon-select-arrows myHandle" ng-click="sortTasks(project.tasks)"></a>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Июн 09 2016 г., 18:51
+-- Время создания: Июн 10 2016 г., 01:21
 -- Версия сервера: 5.5.25
 -- Версия PHP: 5.3.13
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `projects` (
   `name` varchar(255) NOT NULL,
   `owner_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
 
 --
 -- Дамп данных таблицы `projects`
@@ -44,7 +44,8 @@ INSERT INTO `projects` (`id`, `name`, `owner_id`) VALUES
 (51, '13 project', 4),
 (52, 'America', 2),
 (53, 'Garage', 2),
-(54, 'National geografic', 2);
+(54, 'National geografic', 2),
+(55, 'sdfdf dfs sd sd', 10);
 
 -- --------------------------------------------------------
 
@@ -58,59 +59,47 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `status` int(1) NOT NULL,
   `project_id` int(11) NOT NULL,
   `order_value` int(4) NOT NULL,
-  `deadline` int(11) NOT NULL,
+  `deadline` varchar(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `project_id_2` (`project_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=74 ;
 
 --
 -- Дамп данных таблицы `tasks`
 --
 
 INSERT INTO `tasks` (`id`, `name`, `status`, `project_id`, `order_value`, `deadline`) VALUES
-(16, '1йвыв', 1, 41, 0, 0),
-(23, 'sdfsdfsdf', 0, 49, 0, 0),
-(24, 'fsdfdsf', 0, 49, 1, 0),
-(25, 'dfsdfsdsd', 0, 49, 3, 0),
-(26, 'New tasks', 0, 49, 2, 0),
-(28, 'new new туц', 0, 41, 2, 0),
-(29, 'new', 0, 50, 0, 0),
-(30, 'qwer', 0, 50, 0, 0),
-(31, 'aqwer', 1, 52, 10, 0),
-(32, 'new', 1, 52, 9, 0),
-(33, '1йвыв', 1, 52, 8, 0),
-(34, 'aqwer', 1, 52, 7, 0),
-(35, 'new', 1, 52, 6, 0),
-(36, 'repair car', 1, 53, 0, 0),
-(37, 'repair car', 1, 53, 0, 0),
-(38, 'repair car', 1, 53, 0, 0),
-(39, 'repair car', 1, 53, 0, 0),
-(40, 'buy oil', 1, 53, 0, 0),
-(41, 'buy oil', 1, 53, 0, 0),
-(42, 'buy oil', 1, 53, 0, 0),
-(43, 'paint the gate', 1, 53, 0, 0),
-(44, 'paint the gate', 1, 53, 0, 0),
-(45, 'fdfsdfs', 1, 53, 0, 0),
-(46, 'fsdffefefrf', 1, 53, 0, 0),
-(47, 'sfsefefdfsdf', 0, 53, 0, 0),
-(48, 'fsdfefsdf', 0, 53, 0, 0),
-(49, 'dfsdfsdf', 1, 52, 4, 0),
-(50, 'sdfefsdfs', 1, 52, 5, 0),
-(51, 'fsdfsefsefxd', 1, 52, 3, 0),
-(52, 'fsdfefsdffdf', 1, 52, 2, 0),
-(56, 'sdfsdfsdf', 1, 52, 1, 0),
-(57, 'sdfsdf', 1, 52, 0, 0),
-(58, 'вфывыфвыф', 0, 60, 0, 0),
-(59, 'DROP TABLE test', 1, 60, 0, 0),
-(60, 'DROP TABLE `test`', 0, 60, 0, 0),
-(61, 'ваыва', 0, 60, 0, 0),
-(62, 'вава', 0, 67, 0, 0),
-(63, 'grgrgrg', 1, 72, 0, 0),
-(64, 'dgfgfg', 0, 72, 1, 0),
-(65, 'gfgfg df fg', 0, 56, 0, 0),
-(66, 'вапвап', 0, 57, 0, 0),
-(67, 'ytyyt', 0, 58, 2, 0),
-(68, 'dfsdfsdf', 1, 58, 0, 0);
+(16, '1йвыв', 1, 41, 0, '0'),
+(23, 'sdfsdfsdf', 0, 49, 0, '0'),
+(24, 'fsdfdsf', 0, 49, 1, '0'),
+(25, 'dfsdfsdsd', 0, 49, 3, '0'),
+(26, 'New tasks', 0, 49, 2, '0'),
+(28, 'new new туц', 0, 41, 2, '0'),
+(29, 'new', 0, 50, 0, '0'),
+(30, 'qwer', 0, 50, 0, '0'),
+(31, 'aqwer', 1, 52, 10, '0'),
+(32, 'new', 1, 52, 9, '0'),
+(33, '1йвыв', 1, 52, 8, '0'),
+(34, 'aqwer', 1, 52, 7, '0'),
+(35, 'new', 1, 52, 6, '0'),
+(36, 'repair car', 1, 53, 0, '0'),
+(37, 'repair car', 1, 53, 0, '0'),
+(38, 'repair car', 1, 53, 0, '0'),
+(39, 'repair car', 1, 53, 0, '0'),
+(40, 'buy oil', 1, 53, 0, '0'),
+(41, 'buy oil', 1, 53, 0, '0'),
+(42, 'buy oil', 1, 53, 0, '0'),
+(43, 'paint the gate', 1, 53, 0, '0'),
+(44, 'paint the gate', 1, 53, 0, '0'),
+(45, 'fdfsdfs', 1, 53, 0, '0'),
+(46, 'fsdffefefrf', 1, 53, 0, '0'),
+(47, 'sfsefefdfsdf', 0, 53, 0, '0'),
+(48, 'fsdfefsdf', 0, 53, 0, '0'),
+(49, 'dfsdfsdf', 1, 52, 4, '0'),
+(50, 'sdfefsdfs', 1, 52, 5, '0'),
+(51, 'fsdfsefsefxd', 1, 52, 3, '0'),
+(52, 'fsdfefsdffdf', 1, 52, 2, '0'),
+(73, 'ewefwef', 0, 55, 0, '06/22/2016');
 
 -- --------------------------------------------------------
 

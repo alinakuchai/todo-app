@@ -124,7 +124,7 @@ ul li {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-flow: row wrap;
+    -webkit-flex-flow: row nowrap;
     flex-flow: row nowrap;
     align-items: center;
     min-height: 52px;
@@ -206,7 +206,7 @@ ul.tools li {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-flow: row wrap;
+    -webkit-flex-flow: row nowrap;
     flex-flow: row nowrap;
     align-items: center;
 }
@@ -229,6 +229,22 @@ ul.tools li {
     height: 30px;
     width: 100%;
     padding-left: 13px;
+}
+
+.new-task inputinput[placeholder] {
+    text-overflow: ellipsis;
+}
+
+.new-task inputinput::-moz-placeholder {
+    text-overflow: ellipsis;
+}
+
+.new-task inputinput:-moz-placeholder {
+    text-overflow: ellipsis;
+}
+
+.new-task inputinput:-ms-input-placeholder {
+    text-overflow: ellipsis;
 }
 
 .new-task a,
@@ -271,7 +287,7 @@ ul.wrap-tasks li.task {
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-    -webkit-flex-flow: row wrap;
+    -webkit-flex-flow: row nowrap;
     flex-flow: row nowrap;
     align-items: center;
     background-color: #fff;
@@ -478,6 +494,44 @@ ul.wrap-tasks li.task:hover ul.tools li {
     display: inline-block;
 }
 
+input.deadline:hover,
+ul.wrap-tasks li.task:hover input.deadline {
+    background-color: #FCFED5;
+}
+
+ul.wrap-tasks li.task input.deadline {
+    width: 120px;
+    text-align: center;
+    border-left: none;
+        align-self: stretch;
+}
+
+ul.wrap-tasks li.task input.deadline:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+ul.wrap-tasks li.task input.deadline:focus::-moz-placeholder {
+    color: transparent
+}
+
+ul.wrap-tasks li.task input.deadline:focus:-moz-placeholder {
+    color: transparent
+}
+
+ul.wrap-tasks li.task input.deadline:focus:-ms-input-placeholder {
+    color: transparent
+}
+
+.ui-datepicker .ui-datepicker-header {
+    color: #fff;
+    background: #527fb8;
+    background: -moz-linear-gradient(top, #527fb8 0%, #385da0 100%);
+    background: -webkit-linear-gradient(top, #527fb8 0%, #385da0 100%);
+    background: linear-gradient(to bottom, #527fb8 0%, #385da0 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#527fb8', endColorstr='#385da0', GradientType=0);
+    text-shadow: 0px 1px 2px rgba(150, 150, 150, 1);
+}
+
 table.queries {
     width: 700px;
     margin: 20px auto;
@@ -529,9 +583,12 @@ table.queries tr td:last-child {
     .wrap-project-name h3 {
         padding-right: 10px;
     }
-    .wrap-project-name input[type="text"] {
+    .wrap-project-name input[type="text"],
+    ul.wrap-tasks li.task p,
+    ul.wrap-tasks li.task input[type="text"] {
         width: 81%;
         display: inline;
+        border-right: none;
     }
     .wrap-project-name .tools {
         margin-top: 15px;
@@ -543,10 +600,23 @@ table.queries tr td:last-child {
         border-radius: 0;
         width: 100%;
     }
-    ul.tools {
-        min-width: 98px;
+    ul.wrap-tasks li.task {
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+    ul.wrap-tasks li.task input.deadline,
+    ul.wrap-tasks li.task ul.tools {
+        width: 50%;
+        border-top: 1px solid #e7ebea;
+    }
+    ul.wrap-tasks li.task ul.tools {
+        padding: 19px 15px;
+        border-left: 1px solid #e7ebea;
+    }
+    li.task ul.tools li {
+        display: inline-block;
     }
     li.task input[type='checkbox'] {
-        min-width: 30px;
+        float: left;
     }
 }

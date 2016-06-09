@@ -16,7 +16,7 @@ $todoModule.controller('ToDoController', function ($scope, $http, $timeout) {
                 if (!(target.id === "newName")) {
                     $scope.toggleForm = false;
                     jQuery(document).off('click.closeForm');
-                    if (target.className == "add-project") {
+                    if (target.className.indexOf("add-project") !== -1) {
                         $scope.saveProject($scope.newProject.name);
                     } else {
                         $scope.newProject.name = '';
@@ -35,7 +35,7 @@ $todoModule.controller('ToDoController', function ($scope, $http, $timeout) {
             $scope.editInput.focus().val($scope.editInput.val());
             jQuery(document).on('click.stopEditName', function (e) {
                 var target = e.toElement || e.target;
-                if (!(target.className === 'editingInput')) {
+                if (target.className.indexOf('editingInput') === -1) {
                     obj.editing = false;
                     jQuery(document).off('click.stopEditName');
                     if (target.className.indexOf("change-name") !== -1 && $scope.editInput.val()) {
@@ -48,7 +48,27 @@ $todoModule.controller('ToDoController', function ($scope, $http, $timeout) {
             });
         }, 0);
     };
-
+    $scope.saveDeadline = function (task) {
+        console.log(task, task.deadline);
+        $http({
+            method: 'post',
+            url: url,
+            data: $.param({
+                'id': task.id,
+                'deadline': task.deadline,
+                'type': 'save_deadline'
+            }),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).
+        success(function (data, status, headers, config) {
+           console.log(data);
+        }).error(function (data, status, headers, config) {
+            //$scope.codeStatus = response || "Request failed";
+            console.error(data);
+        });
+    };
     $scope.changeName = function (obj) {
         obj.name = $scope.editInput.val();
         if (obj.status) {
@@ -227,7 +247,7 @@ $todoModule.controller('ToDoController', function ($scope, $http, $timeout) {
             console.error(data);
         });
     };
-    
+
     $scope.sortTasks = function (project) {
         var arrayId = [];
         project.tasks.forEach(function (task) {
@@ -259,9 +279,16 @@ $todoModule.controller('ToDoController', function ($scope, $http, $timeout) {
             $scope.sortTasks(ui.item.scope().project);
         }
     };
-    
+
     $scope.getProject();
     angular.element(document).on('click', 'a[href="#"]', function (e) {
         e.preventDefault();
     });
+});
+
+//////////////
+
+
+jQuery(document).on('mousedown touchstart', '.datepicker:not(.datepicker-init)', function () {
+    jQuery(this).addClass('datepicker-init').datepicker();
 });
