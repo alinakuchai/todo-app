@@ -1,0 +1,1 @@
+[06-Jun-2016 21:11:34 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at Z:\home\todo-app\www\auth\register.php:24) in Z:\home\todo-app\www\auth\register.php on line 40
